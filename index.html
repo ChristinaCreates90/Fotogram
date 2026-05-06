@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./dialog.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header_content">
+            <img class="logo_img" src="./img/Group.svg" alt="Logo Picture">
+            <h2>Fotogram</h2>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h1>MEIN FOTOALBUM</h1>
+        </div>
+        <div class="foto_gallery">
+            <div class="foto_div" onclick="dialogOpen('dia-dialog')">
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <img class="name_img" src="./img/Name_logo.png" alt="Designer Logo">
+        </div>
+
+    </footer>
+
+    <div id="body-overlay"></div>
+    <div class="dialog" id="dia-dialog">
+        <div class="over_dia">
+            <div class="pic_description">Image 1</div>
+            <a href="#" role="button" class="close-btn" onclick="dialogClose('dia-dialog')">x</a>
+        </div>
+
+        <div class="img_preview">
+
+        </div>
+
+        <div class="skip_bar">
+            <div class="preview_div">
+                <a class="arrow_click" href="#">&larr;</a>
+            </div>
+
+            <div class="pic_numbers"></div>
+
+             <div class="next_div">
+                <a class="arrow_click" href="#">&rarr;</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+
+</html>
