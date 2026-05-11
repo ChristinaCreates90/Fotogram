@@ -107,13 +107,15 @@
 @media (max-width: 767px) {
     .dialog {
         width: 90%;
-        height: 55%;
+        height: auto;
     }
 
     .img_preview img {
         object-fit: cover;
-        width: 250px;
+        width: 70%;
         height: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
         border-radius: 8px;
     }
 }
@@ -122,14 +124,14 @@
 @media (min-width: 768px) and (max-width: 1280px) {
 
     .dialog {
-        width: 75%;
-        height: 70%;
+        width: 80%;
+        height: auto;
     }
 
     .img_preview img {
         object-fit: cover;
-        width: 400px;
-        height: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
         border-radius: 8px;
     }
 }
