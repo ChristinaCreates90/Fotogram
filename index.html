@@ -17,7 +17,7 @@
 <body>
 
     <header>
-        <div tabindex="1" class="header_content">
+        <div class="header_content">
             <img class="logo_img" src="./img/Group.svg" alt="Logo Picture">
             <h2>Fotogram</h2>
         </div>
@@ -29,13 +29,13 @@
         </div>
         <div class="foto_gallery">
             <div tabindex="1" class="foto_div" onclick="dialogOpen('dia-dialog')">
-
             </div>
         </div>
     </main>
     <footer>
-        <div>
-            <img tabindex="1"  class="name_img" src="./img/Name_logo.png" alt="Designer Logo">
+        <div class="footer_content">
+            <img class="name_img" src="./img/Name_logo.png" alt="Designer Logo">
+            <p>&copy; Christina Ammazzagatti</p>
         </div>
 
     </footer>
@@ -44,7 +44,7 @@
     <div class="dialog" id="dia-dialog">
         <div class="over_dia">
             <div class="pic_description">Image 1</div>
-            <a href="#" role="button" class="close-btn" onclick="dialogClose('dia-dialog')">x</a>
+            <a tabindex="1" href="#" role="button" class="close-btn" onclick="dialogClose('dia-dialog')">x</a>
         </div>
 
         <div class="img_preview">
@@ -53,13 +53,13 @@
 
         <div class="skip_bar">
             <div class="preview_div">
-                <a class="arrow_click" href="#">&larr;</a>
+                <a tabindex="1" class="arrow_click" href="#">&larr;</a>
             </div>
 
             <div class="pic_numbers"></div>
 
              <div class="next_div">
-                <a class="arrow_click" href="#">&rarr;</a>
+                <a tabindex="1"         class="arrow_click" href="#">&rarr;</a>
             </div>
         </div>
 
