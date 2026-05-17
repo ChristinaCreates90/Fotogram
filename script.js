@@ -24,17 +24,15 @@ let myDiscrip = [
 ]
 
 
-
 document.querySelector(".foto_div").innerHTML =
     myImags.map((img, index) =>
         `<img src="img/${img}" onclick="openPreview(${index})">`
     ).join("");
 
 
-
-
 const dialog = document.getElementById('dia-dialog');
 const overlay = document.getElementById('body-overlay');
+
 
 function dialogOpen(dialogId) {
     document.getElementById(dialogId).classList.add("sichtbar");
@@ -47,11 +45,10 @@ function dialogClose(dialogId) {
     document.getElementById("body-overlay").classList.remove("sichtbar");
 }
 
+
 overlay.addEventListener('click', () => {
     dialogClose('dia-dialog');
 });
-
-
 
 
 function openPreview(index) {
@@ -75,7 +72,6 @@ function openPreview(index) {
 
 
 }
-
 
 
 let prev = document.querySelector(".preview_div");
@@ -106,16 +102,14 @@ skip.addEventListener("click", () => {
 });
 
 
-
 // Keydown Events in eins packen, sonst gibt es Probleme:
-
-
 document.addEventListener("keydown", (event) => {
 
     // ESC → Dialog schließen
     if (event.key === "Escape") {
         dialogClose('dia-dialog');
     }
+
 
     // Pfeil links → vorheriges Bild
     else if (event.key === "ArrowLeft") {
@@ -128,6 +122,7 @@ document.addEventListener("keydown", (event) => {
         openPreview(currentIndex);
     }
 
+    
     // Pfeil rechts → nächstes Bild
     else if (event.key === "ArrowRight") {
         currentIndex++;
