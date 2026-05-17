@@ -89,6 +89,7 @@ h2 {
     object-fit: cover;
     border-radius: 8px;
     border: 2px solid rgb(199, 190, 187);
+    cursor: pointer;
 }
 
 

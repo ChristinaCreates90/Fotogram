@@ -26,8 +26,22 @@ let myDiscrip = [
 
 document.querySelector(".foto-div").innerHTML =
     myImags.map((img, index) =>
-        `<img src="img/${img}" onclick="openPreview(${index})">`
+        `<img 
+            src="img/${img}" 
+            alt="${myDiscrip[index]}"
+            tabindex="0"
+            onclick="openPreview(${index})"
+        >`
     ).join("");
+
+
+    document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Enter" && document.activeElement.tagName === "IMG") {
+        document.activeElement.click();
+    }
+
+});
 
 
 const dialog = document.getElementById('dia-dialog');
