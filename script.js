@@ -24,7 +24,7 @@ let myDiscrip = [
 ]
 
 
-document.querySelector(".foto_div").innerHTML =
+document.querySelector(".foto-div").innerHTML =
     myImags.map((img, index) =>
         `<img src="img/${img}" onclick="openPreview(${index})">`
     ).join("");
@@ -53,9 +53,9 @@ overlay.addEventListener('click', () => {
 
 function openPreview(index) {
     currentIndex = index;
-    let preview = document.querySelector(".img_preview");
-    let description = document.querySelector(".pic_description");
-    let picCounter = document.querySelector(".pic_numbers");
+    let preview = document.querySelector(".img-preview");
+    let description = document.querySelector(".pic-description");
+    let picCounter = document.querySelector(".pic-numbers");
 
 
     // Bild einsetzen
@@ -74,8 +74,8 @@ function openPreview(index) {
 }
 
 
-let prev = document.querySelector(".preview_div");
-let skip = document.querySelector(".next_div");
+let prev = document.querySelector(".preview-div");
+let skip = document.querySelector(".next-div");
 let currentIndex = 0;
 
 prev.addEventListener("click", () => {
@@ -122,7 +122,7 @@ document.addEventListener("keydown", (event) => {
         openPreview(currentIndex);
     }
 
-    
+
     // Pfeil rechts → nächstes Bild
     else if (event.key === "ArrowRight") {
         currentIndex++;

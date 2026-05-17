@@ -50,7 +50,7 @@ h2 {
     letter-spacing: 0.3rem;
 }
 
-.header_content {
+.header-content {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -60,13 +60,13 @@ h2 {
 }
 
 
-.logo_img {
+.logo-img {
     width: 90px;
     height: auto;
     padding-right: 40px;
 }
 
-.foto_gallery {
+.foto-gallery {
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -76,14 +76,14 @@ h2 {
 }
 
 
-.foto_div {
+.foto-div {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
 }
 
 
-.foto_div img {
+.foto-div img {
     width: 180px;
     height: 180px;
     object-fit: cover;
@@ -93,7 +93,7 @@ h2 {
 
 
 
-.foto_div img:hover {
+.foto-div img:hover {
     border: 2px solid rgb(247, 138, 76);
 
 }
@@ -120,7 +120,7 @@ footer {
     align-items: center;
 }
 
-.footer_content p {
+.footer-content p {
     font-size: 10px;
     color: rgb(21, 17, 14);
     font-family: "Raleway", sans-serif;
@@ -138,11 +138,11 @@ footer {
         padding-right: 15px;
     }
 
-    .header_content {
+    .header-content {
         padding-left: 20px;
     }
 
-    .logo_img {
+    .logo-img {
         width: 60px;
         height: auto;
         padding-right: 20px;
@@ -156,13 +156,13 @@ footer {
         font-size: 22px;
     }
 
-    .foto_div {
+    .foto-div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
     }
 
-    .foto_div img {
+    .foto-div img {
         width: 140px;
         height: 140px;
         object-fit: cover;
@@ -179,11 +179,11 @@ footer {
 
 @media (min-width: 768px) and (max-width: 1280px) {
 
-    .header_content {
+    .header-content {
         padding-left: 80px;
     }
 
-    .foto_div {
+    .foto-div {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 14px;
