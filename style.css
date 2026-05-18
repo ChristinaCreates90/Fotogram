@@ -114,7 +114,7 @@ footer {
     padding-bottom: 10px;
 }
 
-.footer_content {
+.footer-content {
     display: flex;
     justify-content: center;
     flex-direction: column;
