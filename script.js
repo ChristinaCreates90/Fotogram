@@ -83,14 +83,13 @@ function openPreview(index) {
 
     //zeigt die Zahl vom Bild an und wie viele Bilder insgesamt
     picCounter.innerText = `${index + 1} / ${myImags.length}`;
-
-
 }
 
 
 let prev = document.querySelector(".preview-div");
 let skip = document.querySelector(".next-div");
 let currentIndex = 0;
+
 
 prev.addEventListener("click", () => {
     currentIndex--;
@@ -119,6 +118,7 @@ skip.addEventListener("click", () => {
 // Keydown Events in eins packen, sonst gibt es Probleme:
 document.addEventListener("keydown", (event) => {
 
+
     // ESC → Dialog schließen
     if (event.key === "Escape") {
         dialogClose('dia-dialog');
@@ -132,7 +132,6 @@ document.addEventListener("keydown", (event) => {
         if (currentIndex < 0) {
             currentIndex = myImags.length - 1;
         }
-
         openPreview(currentIndex);
     }
 
