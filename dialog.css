@@ -114,17 +114,33 @@
 @media (max-width: 767px) {
     .dialog {
         width: 90%;
-        height: auto;
+        height: 75%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .over-dia {
+        padding: 20px 10px;
     }
 
     .img-preview img {
-        object-fit: cover;
-        width: 70%;
-        height: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        border-radius: 8px;
+        max-width: 90%;
+        height: 90;
+    }
+
+    .skip-bar {
+        padding: 20px 10px;
+    }
+
+    .pic-numbers {
+        font-size: 12px;
     }
 }
 
 
+@media (min-width: 768px) and (max-width: 1023px) {
+    .dialog {
+        width: 75%;
+        height: 75%;
+    }
+}
