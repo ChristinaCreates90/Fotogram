@@ -44,6 +44,7 @@
     padding: 20px 30px 20px 30px;
 }
 
+
 .pic-description {
     color: rgb(93, 69, 57);
 }
@@ -110,8 +111,11 @@
 }
 
 
-
 @media (max-width: 767px) {
+    body {
+        overflow: hidden;
+    }
+
     .dialog {
         width: 90%;
         height: 75%;
