@@ -23,6 +23,9 @@ let myDiscrip = [
     'Baum im Herbst',
 ]
 
+const dialog = document.getElementById('dia-dialog');
+const overlay = document.getElementById('body-overlay');
+
 
 document.querySelector(".foto-div").innerHTML =
     myImags.map((img, index) =>
@@ -43,9 +46,6 @@ document.querySelector(".foto-div").innerHTML =
 
 });
 
-
-const dialog = document.getElementById('dia-dialog');
-const overlay = document.getElementById('body-overlay');
 
 
 function dialogOpen(dialogId) {
