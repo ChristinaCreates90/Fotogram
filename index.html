@@ -29,13 +29,13 @@
             <h1>MEIN FOTOALBUM</h1>
         </div>
         <div class="foto-gallery">
-            <div  class="foto-div" id="imageGallery">
+            <div class="foto-div" id="imageGallery">
             </div>
         </div>
     </main>
     <footer>
         <div class="footer-content">
-            <img class="name_img" src="./img/Name_logo.png" alt="Designer Logo">
+            <img class="name-img" src="./img/Name_logo.png" alt="Designer Logo">
             <p>&copy; Christina Ammazzagatti</p>
         </div>
 
@@ -45,7 +45,9 @@
     <div class="dialog" id="dia-dialog">
         <div class="over-dia">
             <div class="pic-description">Image 1</div>
-            <a tabindex="0" href="#" role="button" class="close-btn" id="close-button" onclick="dialogClose('dia-dialog')" >x</a>
+            <button class="close-btn" id="close-button" onclick="dialogClose('dia-dialog')">
+                x
+            </button>
         </div>
 
         <div class="img-preview">
@@ -53,15 +55,9 @@
         </div>
 
         <div class="skip-bar">
-            <div onclick="prevPic()" class="preview-div">
-                <a tabindex="0" class="arrow-click" href="#">&larr;</a>
-            </div>
-
+            <button tabindex="0" class="arrow-click" onclick="prevPic()">&larr;</button>
             <div class="pic-numbers"></div>
-
-             <div onclick="nextPic()" class="next-div">
-                <a tabindex="0" class="arrow-click" onclick="" href="#">&rarr;</a>
-            </div>
+            <button tabindex="0" class="arrow-click" onclick="nextPic()">&rarr;</button>
         </div>
 
     </div>

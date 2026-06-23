@@ -30,9 +30,11 @@ function getGalleryContent(index) {
             alt="${myDiscrip[index]}"
             tabindex="0"
             onclick="openPreview(${index})"
+            onkeydown="if(event.key === 'Enter') openPreview(${index})"
         >
     `;
 }
+
 
 function init() {
     const galleryRef = document.getElementById("imageGallery");
@@ -49,16 +51,27 @@ function dialogOpen(dialogId) {
     document.getElementById(dialogId).classList.add("sichtbar");
     document.getElementById("body-overlay").classList.add("sichtbar");
 
-    const closeBtn = document.getElementById("close-button");
+    let images = document.querySelectorAll("#imageGallery img");
 
-    if (closeBtn) {
-        closeBtn.focus();
+    for (let i = 0; i < images.length; i++) {
+        images[i].tabIndex = -1;
     }
+
+    setTimeout(() => {
+        document.getElementById("close-button").focus();
+    }, 50);
 }
+
 
 function dialogClose(dialogId) {
     document.getElementById(dialogId).classList.remove("sichtbar");
     document.getElementById("body-overlay").classList.remove("sichtbar");
+
+    let images = document.querySelectorAll("#imageGallery img");
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].tabIndex = 0;
+    }
 }
 
 
