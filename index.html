@@ -29,7 +29,7 @@
             <h1>MEIN FOTOALBUM</h1>
         </div>
         <div class="foto-gallery">
-            <div  class="foto-div" onclick="dialogOpen('dia-dialog')">
+            <div  class="foto-div" id="imageGallery">
             </div>
         </div>
     </main>
@@ -45,7 +45,7 @@
     <div class="dialog" id="dia-dialog">
         <div class="over-dia">
             <div class="pic-description">Image 1</div>
-            <a tabindex="0" href="#" role="button" class="close-btn" onclick="dialogClose('dia-dialog')">x</a>
+            <a tabindex="0" href="#" role="button" class="close-btn" id="close-button" onclick="dialogClose('dia-dialog')" >x</a>
         </div>
 
         <div class="img-preview">
@@ -53,14 +53,14 @@
         </div>
 
         <div class="skip-bar">
-            <div class="preview-div">
+            <div onclick="prevPic()" class="preview-div">
                 <a tabindex="0" class="arrow-click" href="#">&larr;</a>
             </div>
 
             <div class="pic-numbers"></div>
 
-             <div class="next-div">
-                <a tabindex="0" class="arrow-click" href="#">&rarr;</a>
+             <div onclick="nextPic()" class="next-div">
+                <a tabindex="0" class="arrow-click" onclick="" href="#">&rarr;</a>
             </div>
         </div>
 

@@ -96,7 +96,7 @@ h1 {
 
 .foto-div img:hover {
     border: 2px solid rgb(247, 138, 76);
-
+    transform: scale(1.1);
 }
 
 footer {

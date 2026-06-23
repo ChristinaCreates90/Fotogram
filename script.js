@@ -1,5 +1,3 @@
-
-
 let myImags = [
     'Canyon.webp',
     'City.webp',
@@ -8,9 +6,8 @@ let myImags = [
     'Nature.webp',
     'Stone.webp',
     'Street.webp',
-    'Tree.webp',
+    'Tree.webp'
 ];
-
 
 let myDiscrip = [
     'Canyon',
@@ -20,39 +17,44 @@ let myDiscrip = [
     'Steine',
     'Schlucht',
     'Stadt bei Dämmerung',
-    'Baum im Herbst',
-]
+    'Baum im Herbst'
+];
 
-const dialog = document.getElementById('dia-dialog');
-const overlay = document.getElementById('body-overlay');
+let currentIndex = 0;
 
 
-document.querySelector(".foto-div").innerHTML =
-    myImags.map((img, index) =>
-        `<img 
-            src="img/${img}" 
+function getGalleryContent(index) {
+    return `
+        <img
+            src="./img/${myImags[index]}"
             alt="${myDiscrip[index]}"
             tabindex="0"
             onclick="openPreview(${index})"
-        >`
-    ).join("");
+        >
+    `;
+}
 
+function init() {
+    const galleryRef = document.getElementById("imageGallery");
 
-    document.addEventListener("keydown", (event) => {
+    galleryRef.innerHTML = "";
 
-    if (event.key === "Enter" && document.activeElement.tagName === "IMG") {
-        document.activeElement.click();
+    for (let index = 0; index < myImags.length; index++) {
+        galleryRef.innerHTML += getGalleryContent(index);
     }
-
-});
-
+}
 
 
 function dialogOpen(dialogId) {
     document.getElementById(dialogId).classList.add("sichtbar");
     document.getElementById("body-overlay").classList.add("sichtbar");
-}
 
+    const closeBtn = document.getElementById("close-button");
+
+    if (closeBtn) {
+        closeBtn.focus();
+    }
+}
 
 function dialogClose(dialogId) {
     document.getElementById(dialogId).classList.remove("sichtbar");
@@ -60,38 +62,29 @@ function dialogClose(dialogId) {
 }
 
 
-overlay.addEventListener('click', () => {
-    dialogClose('dia-dialog');
-});
-
-
 function openPreview(index) {
     currentIndex = index;
-    let preview = document.querySelector(".img-preview");
-    let description = document.querySelector(".pic-description");
-    let picCounter = document.querySelector(".pic-numbers");
 
+    const preview = document.querySelector(".img-preview");
+    const description = document.querySelector(".pic-description");
+    const picCounter = document.querySelector(".pic-numbers");
 
-    // Bild einsetzen
-    preview.innerHTML = `<img class="preview_img" src="img/${myImags[index]}">`;
+    preview.innerHTML = `
+        <img
+            class="preview_img"
+            src="./img/${myImags[index]}"
+            alt="${myDiscrip[index]}"
+        >
+    `;
 
-    // Text setzen
-    description.innerText = myDiscrip[index];
+    description.textContent = myDiscrip[index];
+    picCounter.textContent = `${index + 1} / ${myImags.length}`;
 
-    // Dialog öffnen
-    dialogOpen('dia-dialog');
-
-    //zeigt die Zahl vom Bild an und wie viele Bilder insgesamt
-    picCounter.innerText = `${index + 1} / ${myImags.length}`;
+    dialogOpen("dia-dialog");
 }
 
 
-let prev = document.querySelector(".preview-div");
-let skip = document.querySelector(".next-div");
-let currentIndex = 0;
-
-
-prev.addEventListener("click", () => {
+function prevPic() {
     currentIndex--;
 
     if (currentIndex < 0) {
@@ -99,11 +92,9 @@ prev.addEventListener("click", () => {
     }
 
     openPreview(currentIndex);
-    
-});
+}
 
-
-skip.addEventListener("click", () => {
+function nextPic() {
     currentIndex++;
 
     if (currentIndex >= myImags.length) {
@@ -112,38 +103,37 @@ skip.addEventListener("click", () => {
 
     openPreview(currentIndex);
 }
-;
 
 
-// Keydown Events in eins packen, sonst gibt es Probleme:
-document.addEventListener("keydown", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
 
+    init();
 
-    // ESC → Dialog schließen
-    if (event.key === "Escape") {
-        dialogClose('dia-dialog');
-    }
+    const overlay = document.getElementById("body-overlay");
 
+    overlay.addEventListener("click", () => {
+        dialogClose("dia-dialog");
+    });
 
-    // Pfeil links → vorheriges Bild
-    else if (event.key === "ArrowLeft") {
-        currentIndex--;
+    document.addEventListener("keydown", (event) => {
 
-        if (currentIndex < 0) {
-            currentIndex = myImags.length - 1;
-        }
-        openPreview(currentIndex);
-    }
-
-
-    // Pfeil rechts → nächstes Bild
-    else if (event.key === "ArrowRight") {
-        currentIndex++;
-
-        if (currentIndex >= myImags.length) {
-            currentIndex = 0;
+        if (event.key === "Escape") {
+            dialogClose("dia-dialog");
         }
 
-        openPreview(currentIndex);
-    }
+        if (event.key === "ArrowLeft") {
+            prevPic();
+        }
+
+        if (event.key === "ArrowRight") {
+            nextPic();
+        }
+
+        if (
+            event.key === "Enter" &&
+            document.activeElement.tagName === "IMG"
+        ) {
+            document.activeElement.click();
+        }
+    });
 });
