@@ -1,6 +1,4 @@
-.d_none {
-    display: none;
-}
+
 
 #body-overlay {
     position: fixed;
@@ -42,7 +40,7 @@
 }
 
 
-.lightbox-text {
+.over-dia {
     display: flex;
     justify-content: space-between;
     padding: 20px 30px 20px 30px;
