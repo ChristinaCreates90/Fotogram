@@ -111,8 +111,8 @@ skip.addEventListener("click", () => {
     }
 
     openPreview(currentIndex);
-    
-});
+}
+;
 
 
 // Keydown Events in eins packen, sonst gibt es Probleme:
