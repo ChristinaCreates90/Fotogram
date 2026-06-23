@@ -22,6 +22,9 @@ main {
     ;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
 
 header {
     top: 0;

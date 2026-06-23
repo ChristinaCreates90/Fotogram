@@ -51,6 +51,8 @@ function dialogOpen(dialogId) {
     document.getElementById(dialogId).classList.add("sichtbar");
     document.getElementById("body-overlay").classList.add("sichtbar");
 
+    document.body.classList.add("no-scroll");
+
     let images = document.querySelectorAll("#imageGallery img");
 
     for (let i = 0; i < images.length; i++) {
@@ -66,6 +68,8 @@ function dialogOpen(dialogId) {
 function dialogClose(dialogId) {
     document.getElementById(dialogId).classList.remove("sichtbar");
     document.getElementById("body-overlay").classList.remove("sichtbar");
+
+    document.body.classList.remove("no-scroll");
 
     let images = document.querySelectorAll("#imageGallery img");
 
