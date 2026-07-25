@@ -54,12 +54,9 @@ function openDialog(index) {
     picDialog.innerHTML = picHTML;
     picDescription.innerHTML = description;
 
-    let buttons = document.querySelectorAll("main button");
+    document.body.classList.add("no-scroll");
 
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].tabIndex = -1;
-    }
-
+    changeGalleryTabIndex(-1);
 }
 
 
@@ -70,11 +67,9 @@ function closeDialog() {
     dialog.classList.remove("sichtbar");
     overlay.classList.remove("sichtbar");
 
-    let buttons = document.querySelectorAll("main button");
+    document.body.classList.remove("no-scroll");
 
-    for (let i = 0; i < buttons.length; i++) {
-    buttons[i].tabIndex = 0;
-    }
+    changeGalleryTabIndex(0);
 }
 
 
@@ -115,6 +110,15 @@ function prevPic() {
 
     let description = myDiscrip[index];
     picDescription.innerHTML = description;
+}
+
+
+function changeGalleryTabIndex(tabIndex) {
+    let buttons = document.querySelectorAll("main button");
+
+    for (let i = 0; i < buttons.length; i++) {
+    buttons[i].tabIndex = tabIndex;
+    }
 }
 
 

@@ -115,10 +115,6 @@
 }
 
 @media (max-width: 767px) {
-    body {
-        overflow: hidden;
-    }
-
     .dialog {
         width: 90%;
         height: 75%;
