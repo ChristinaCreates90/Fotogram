@@ -15,12 +15,12 @@
 
 </head>
 
-<body>
+<body onload="init()">
 
     <header>
         <div class="header-content">
             <img class="logo-img" src="./img/Favicon.svg" alt="Logo Picture">
-            <span class="logo-header">Fotogram</span>
+            <span class="logo-header" alt="Logo-Fotoalbum"></span>Fotogram</span>
         </div>
     </header>
 
@@ -29,7 +29,8 @@
             <h1>MEIN FOTOALBUM</h1>
         </div>
         <div class="foto-gallery">
-            <div class="foto-div" id="imageGallery">
+            <div class="foto-div" id="imageGallery" alt="Fotogalerie">
+              
             </div>
         </div>
     </main>
@@ -41,23 +42,23 @@
 
     </footer>
 
-    <div id="body-overlay"></div>
+    <div id="body-overlay" onclick="closeDialog()"></div>
     <div class="dialog" id="dia-dialog">
         <div class="over-dia">
-            <div class="pic-description">Image 1</div>
-            <button class="close-btn" id="close-button" onclick="dialogClose('dia-dialog')">
+            <div class="pic-description" id="img-discription">Image 1</div>
+            <button class="close-btn" id="close-button" onclick="closeDialog()">
                 x
             </button>
         </div>
 
-        <div class="img-preview">
+        <div class="img-preview" id="pic-dialog">
 
         </div>
 
         <div class="skip-bar">
-            <button tabindex="0" class="arrow-click" onclick="prevPic()">&larr;</button>
-            <div class="pic-numbers"></div>
-            <button tabindex="0" class="arrow-click" onclick="nextPic()">&rarr;</button>
+            <button tabindex="0" class="arrow-click" alt="Weiter Button" onclick="prevPic()">&larr;</button>
+            <div class="pic-numbers" id="img-number"></div>
+            <button tabindex="0" class="arrow-click" alt="Zurück Button" onclick="nextPic()">&rarr;</button>
         </div>
 
     </div>

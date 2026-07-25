@@ -1,13 +1,14 @@
-let myImags = [
-    'Canyon.webp',
-    'City.webp',
-    'CityLife.webp',
-    'CityNight.webp',
-    'Nature.webp',
-    'Stone.webp',
-    'Street.webp',
-    'Tree.webp'
+let myImages = [
+    'img/Canyon.webp',
+    'img/City.webp',
+    'img/CityLife.webp',
+    'img/CityNight.webp',
+    'img/Nature.webp',
+    'img/Stone.webp',
+    'img/Street.webp',
+    'img/Tree.webp'
 ];
+
 
 let myDiscrip = [
     'Canyon',
@@ -20,137 +21,113 @@ let myDiscrip = [
     'Baum im Herbst'
 ];
 
-let currentIndex = 0;
-
-
-function getGalleryContent(index) {
-    return `
-        <img
-            src="./img/${myImags[index]}"
-            alt="${myDiscrip[index]}"
-            tabindex="0"
-            onclick="openPreview(${index})"
-            onkeydown="if(event.key === 'Enter') openPreview(${index})"
-        >
-    `;
-}
-
 
 function init() {
-    const galleryRef = document.getElementById("imageGallery");
+    let gallery = document.getElementById("imageGallery");
 
-    galleryRef.innerHTML = "";
+    for (let index = 0; index < myImages.length; index++) {
+        const element = myImages[index];
+        let imageHTML = `<button onclick="openDialog(${index})"><img src="${element}"></button>`;
 
-    for (let index = 0; index < myImags.length; index++) {
-        galleryRef.innerHTML += getGalleryContent(index);
+        gallery.innerHTML += imageHTML;
     }
 }
 
 
-function dialogOpen(dialogId) {
-    document.getElementById(dialogId).classList.add("sichtbar");
-    document.getElementById("body-overlay").classList.add("sichtbar");
+function openDialog(index) {
+    const dialog = document.getElementById("dia-dialog");
+    const overlay = document.getElementById("body-overlay");
+    const picDialog = document.getElementById("pic-dialog");
+    const picDescription = document.getElementById("img-discription");
+    const imgNumbers = document.getElementById("img-number");
 
-    document.body.classList.add("no-scroll");
+    const picPreview = myImages[index];
+    let description = myDiscrip[index];
+    imgNumbers.textContent = `${index + 1}/${myImages.length}`;
+    imgNumbers.dataset.index = index;
 
-    let images = document.querySelectorAll("#imageGallery img");
+    dialog.classList.add("sichtbar");
+    overlay.classList.add("sichtbar");
 
-    for (let i = 0; i < images.length; i++) {
-        images[i].tabIndex = -1;
+    let picHTML = `<img src="${picPreview}">`;
+
+    picDialog.innerHTML = picHTML;
+    picDescription.innerHTML = description;
+
+    let buttons = document.querySelectorAll("main button");
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].tabIndex = -1;
     }
 
-    setTimeout(() => {
-        document.getElementById("close-button").focus();
-    }, 50);
 }
 
 
-function dialogClose(dialogId) {
-    document.getElementById(dialogId).classList.remove("sichtbar");
-    document.getElementById("body-overlay").classList.remove("sichtbar");
+function closeDialog() {
+    const dialog = document.getElementById("dia-dialog");
+    const overlay = document.getElementById("body-overlay");
 
-    document.body.classList.remove("no-scroll");
+    dialog.classList.remove("sichtbar");
+    overlay.classList.remove("sichtbar");
 
-    let images = document.querySelectorAll("#imageGallery img");
+    let buttons = document.querySelectorAll("main button");
 
-    for (let i = 0; i < images.length; i++) {
-        images[i].tabIndex = 0;
+    for (let i = 0; i < buttons.length; i++) {
+    buttons[i].tabIndex = 0;
     }
 }
 
 
-function openPreview(index) {
-    currentIndex = index;
+function nextPic() {
+    const imgNumbers = document.getElementById("img-number");
+    const picDialog = document.getElementById("pic-dialog");
+    const picDescription = document.getElementById("img-discription");
 
-    const preview = document.querySelector(".img-preview");
-    const description = document.querySelector(".pic-description");
-    const picCounter = document.querySelector(".pic-numbers");
+    let index = Number(imgNumbers.dataset.index) + 1;
+    if (index > myImages.length - 1) {
+        index = 0;
+    }
+    const picPreview = myImages[index];
+    let picHTML = `<img src="${picPreview}">`;
+    imgNumbers.textContent = `${index + 1}/${myImages.length}`;
+    picDialog.innerHTML = picHTML;
+    imgNumbers.dataset.index = index;
 
-    preview.innerHTML = `
-        <img
-            class="preview_img"
-            src="./img/${myImags[index]}"
-            alt="${myDiscrip[index]}"
-        >
-    `;
-
-    description.textContent = myDiscrip[index];
-    picCounter.textContent = `${index + 1} / ${myImags.length}`;
-
-    dialogOpen("dia-dialog");
+    let description = myDiscrip[index];
+    picDescription.innerHTML = description;
 }
 
 
 function prevPic() {
-    currentIndex--;
+    const imgNumbers = document.getElementById("img-number");
+    const picDialog = document.getElementById("pic-dialog");
+    const picDescription = document.getElementById("img-discription");
 
-    if (currentIndex < 0) {
-        currentIndex = myImags.length - 1;
+    let index = Number(imgNumbers.dataset.index) - 1;
+    if (index < 0) {
+        index = myImages.length - 1;
     }
+    const picPreview = myImages[index];
+    let picHTML = `<img src="${picPreview}">`;
+    imgNumbers.textContent = `${index + 1}/${myImages.length}`;
+    picDialog.innerHTML = picHTML;
+    imgNumbers.dataset.index = index;
 
-    openPreview(currentIndex);
+    let description = myDiscrip[index];
+    picDescription.innerHTML = description;
 }
 
-function nextPic() {
-    currentIndex++;
 
-    if (currentIndex >= myImags.length) {
-        currentIndex = 0;
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeDialog();
     }
-
-    openPreview(currentIndex);
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    init();
-
-    const overlay = document.getElementById("body-overlay");
-
-    overlay.addEventListener("click", () => {
-        dialogClose("dia-dialog");
-    });
-
-    document.addEventListener("keydown", (event) => {
-
-        if (event.key === "Escape") {
-            dialogClose("dia-dialog");
-        }
-
-        if (event.key === "ArrowLeft") {
-            prevPic();
-        }
-
-        if (event.key === "ArrowRight") {
-            nextPic();
-        }
-
-        if (
-            event.key === "Enter" &&
-            document.activeElement.tagName === "IMG"
-        ) {
-            document.activeElement.click();
-        }
-    });
+    if (event.key === "ArrowRight") {
+        nextPic();
+    }
+    if (event.key === "ArrowLeft") {
+        prevPic();
+    }
 });
+
+

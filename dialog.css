@@ -107,6 +107,13 @@
 }
 
 
+.foto-div button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
 @media (max-width: 767px) {
     body {
         overflow: hidden;

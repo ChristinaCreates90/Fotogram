@@ -45,13 +45,6 @@ h1 {
     letter-spacing: 0.3rem;
 }
 
-.logo-header {
-    font-size: 30px;
-    color: rgb(255, 255, 255);
-    font-family: "Raleway", sans-serif;
-    font-weight: 200;
-    letter-spacing: 0.3rem;
-}
 
 .header-content {
     display: flex;
@@ -60,6 +53,11 @@ h1 {
     width: 100%;
     padding-left: 80px;
     max-width: 1440px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    font-family: "Raleway", sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.3rem;
 }
 
 
