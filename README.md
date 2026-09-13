@@ -15,4 +15,4 @@ HTML · CSS · JavaScript
 
 ## 🌐 Live Demo
 
-👉 [View Fotogram](https://christinacreates90.github.io/Fotogram/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Fotogram-8B7D77?style=for-the-badge&logo=github)](https://christinacreates90.github.io/Fotogram/)
