@@ -12,3 +12,7 @@ A responsive photo gallery built with HTML, CSS and JavaScript.
 ## Technologies
 
 HTML · CSS · JavaScript
+
+## 🌐 Live Demo
+
+👉 [View Fotogram](https://christinacreates90.github.io/Fotogram/)
